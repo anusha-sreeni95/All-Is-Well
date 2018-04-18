@@ -23,6 +23,7 @@ class SignUpView(FormView):
         context = {
             'form_class' : form_class
         }
+
         if(form.is_valid()):
             full_name = form.cleaned_data['full_name']
             phone_number = form.cleaned_data['phone_number']
@@ -33,11 +34,8 @@ class SignUpView(FormView):
             profile_photo = form.cleaned_data['profile_photo']
             gender = form.cleaned_data['gender']
 
-            print("Comes here")
             if(new_user(email_address)):
                 save_details(full_name, phone_number, email_address, password, interests, location, profile_photo, gender)
             else:
                 print("User already exists")
-        else:
-            print("Error")
         return render(request, self.template_name, context=context)
