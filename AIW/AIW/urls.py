@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^loginmanager/', include("loginmanager.urls")),
     url(r'^signupmanager/', include("signupmanager.urls")),
     url(r'^admin/', admin.site.urls),
+	url(r'^events/',include("upcomingevents.urls")),
 ]
 
 if settings.DEBUG:
