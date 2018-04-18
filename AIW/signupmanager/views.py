@@ -31,11 +31,9 @@ class SignUpView(FormView):
             password = form.cleaned_data['password']
             interests = form.cleaned_data['interests']
             location = form.cleaned_data['location']
-            profile_photo = form.cleaned_data['profile_photo']
-            gender = form.cleaned_data['gender']
 
             if(new_user(email_address)):
-                save_details(full_name, phone_number, email_address, password, interests, location, profile_photo, gender)
+                save_details(full_name, phone_number, email_address, password, interests, location)
             else:
                 print("User already exists")
         return render(request, self.template_name, context=context)

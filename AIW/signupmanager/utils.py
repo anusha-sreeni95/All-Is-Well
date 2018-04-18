@@ -2,7 +2,7 @@ from .models import UserData
 from hashlib import sha1
 import base64
 
-def save_details(full_name, phone_number, email_address, password, interests, location, profile_photo, gender):
+def save_details(full_name, phone_number, email_address, password, interests, location):
     encoded_plain = base64.b64encode(bytes(password, 'utf-8'))
     encoded_password = sha1(encoded_plain).hexdigest()
     environment = 0
@@ -22,8 +22,6 @@ def save_details(full_name, phone_number, email_address, password, interests, lo
                     email_address = email_address,
                     password = encoded_password,
                     location = location,
-                    profile_photo = profile_photo,
-                    gender = gender,
                     environment = environment,
                     education = education,
                     animal = animal,
