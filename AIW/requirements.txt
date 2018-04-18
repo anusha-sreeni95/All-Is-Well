@@ -4,3 +4,5 @@ psycopg2-binary==2.7.4
 django-crispy-forms==1.7.2
 django-bootstrap3==9.1.0
 django-common-helpers==0.9.1
+django-multiselectfield==0.1.8
+Pillow==5.1.0
