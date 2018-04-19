@@ -81,11 +81,11 @@
 				</div>
 				<div class="col-xs-8 text-right menu-1">
 					<ul>
-						<li class="active"><a href="{%  url 'upcomingevents' %}">Upcoming Events</a></li>
+						<li><a href="{%  url 'upcomingevents' %}">Upcoming Events</a></li>
 						<li><a href="tour.html">Donate</a></li>
 						<li><a href="pricing.html">About Us</a></li>
 						<li><a href="contact.html">Contact</a></li>
-						<li class="btn-cta"><a href="#"><span>Get started</span></a></li>
+						<li><a href="{% url 'logoutview' %}">Logout</a></li>
 					</ul>
 				</div>
 			</div>
@@ -142,9 +142,9 @@
 						</ul>
 						<form method="post">
 							{% csrf_token %}
-							<button name="event_id" type="submit" value="{{ event.id }}" class="btn btn-info btn-md">Register Now!</button>        					
+							<button name="event_id" type="submit" value="{{ event.id }}" class="btn btn-info btn-md">Register Now!</button>
       					</form>
-						
+
 					</div>
 				</div>
 				{% endfor %}

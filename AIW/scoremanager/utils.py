@@ -30,9 +30,12 @@ def get_events_participated(email_address):
     participated_events=[]
     total_score = 0
     for event in registered_events:
-        row = Event.objects.filter(id=event.id)[0]
-        participated_events.append({'event_name':row.event_name, 'description':row.description, 'date':row.date, 'location':row.location, 'score':event.score})
+        rows = Event.objects.filter(id=event.id)
+        for row in rows:
+            print(row.name)
+            participated_events.append({'event_name':row.event_name, 'description':row.description, 'date':row.date, 'location':row.location, 'score':event.score})
         total_score+=event.score
+        print(participated_events, total_score)
     return participated_events, total_score
 
 def get_events_hosted(email_address):
@@ -42,6 +45,8 @@ def get_events_hosted(email_address):
         rows = RegisteredEvents.objects.filter(event_id = event.id)
         volunteers = []
         for row in rows:
-            volunteers.append(UserData.objects.filter(email_address = row.volunteer_email)[0].full_name)
+            users = UserData.objects.filter(email_address = row.volunteer_email)
+            for user in users:
+                volunteers.append(user.full_name)
         events.append({'event_name':event.event_name, 'description':event.description, 'date':event.date, 'location':event.location, 'volunteers':volunteers})
     return events
