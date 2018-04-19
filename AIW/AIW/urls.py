@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^$',LoginView.as_view(),name="home"),
     url(r'^scoreboard/', include("scoremanager.urls")),
     url(r'^eventcreate/', include("eventcreationmanager.urls")),
+    url(r'^donate/', include("donationmanager.urls"))
 ]
 
 

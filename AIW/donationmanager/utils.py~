@@ -1,0 +1,14 @@
+from donationmanager.models import DonationBox
+
+def create_donation(donation_title, donation_item_description, ngo_name, location, creation_date, ngo_email):
+    row = Event(event_name = event_name,
+                description = description,
+                event_type = event_type,
+                host_email = host_email,
+                location = location,
+                date = start_date,
+                score = score,
+                volunteers_required = volunteers_required,
+                no_of_days = no_of_days,
+                hours_per_day = hours_per_day)
+    row.save()
