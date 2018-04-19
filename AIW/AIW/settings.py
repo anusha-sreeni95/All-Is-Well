@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'loginmanager.apps.LoginmanagerConfig',
     'signupmanager.apps.SignupmanagerConfig',
+    'homepagemanager.apps.HomepagemanagerConfig',
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap3"

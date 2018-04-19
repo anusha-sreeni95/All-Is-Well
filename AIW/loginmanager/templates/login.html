@@ -6,6 +6,9 @@
 <div class="modal-dialog">
   <div class="loginmodal-container">
     <h1>Login</h1>
+    {% if invalid %}
+      <div><p style="color:red">{{message}}</p></div>
+    {% endif %}
     {% if form_class %}
 			<form method=post>
         {% csrf_token %}

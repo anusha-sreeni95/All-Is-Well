@@ -27,11 +27,18 @@ class LoginView(FormView):
             password = form.cleaned_data['password']
 
             if(verify_credentials(email_address, password)):
-                print('Success')
+                return HttpResponseRedirect("/homepagemanager/homapage")
             else:
-                print('Invalid Creds')
-
+                context = {
+                    'form_class' : form_class,
+                    'invalid'    : True,
+                    'message' : 'Please check the username and password'
+                }
+                return render(request, self.template_name, context=context)
+        else:
             context = {
-                'form_class' : form_class
+                'form_class' : form_class,
+                'invalid'    : True,
+                'message' : 'Invalid form entry'
             }
-        return render(request, self.template_name, context=context)
+            return render(request, self.template_name, context=context)

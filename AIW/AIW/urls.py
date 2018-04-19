@@ -22,6 +22,7 @@ from loginmanager.views import LoginView
 urlpatterns = [
     url(r'^loginmanager/', include("loginmanager.urls")),
     url(r'^signupmanager/', include("signupmanager.urls")),
+    url(r'^homepagemanager/', include("homepagemanager.urls")),
     url(r'^admin/', admin.site.urls),
 ]
 

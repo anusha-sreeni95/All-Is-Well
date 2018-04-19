@@ -20,9 +20,6 @@ class SignUpView(FormView):
     def post(self, request, *args, **kwargs):
         form_class = self.get_form_class()
         form = self.get_form(form_class)
-        context = {
-            'form_class' : form_class
-        }
 
         if(form.is_valid()):
             full_name = form.cleaned_data['full_name']
@@ -34,6 +31,18 @@ class SignUpView(FormView):
 
             if(new_user(email_address)):
                 save_details(full_name, phone_number, email_address, password, interests, location)
+                return HttpResponseRedirect("/homepagemanager/homapage")
             else:
-                print("User already exists")
-        return render(request, self.template_name, context=context)
+                context = {
+                    'form_class' : form_class,
+                    'invalid'    : True,
+                    'message' : 'User already exists'
+                }
+                return render(request, self.template_name, context=context)
+        else:
+            context = {
+                'form_class' : form_class,
+                'invalid'    : True,
+                'message' : 'Invalid form entry'
+            }
+            return render(request, self.template_name, context=context)
