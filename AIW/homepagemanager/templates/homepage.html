@@ -119,54 +119,28 @@
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
 					<h2>Registered Events</h2>
+					{% if events_registered %}
 					<p>You have registered for the following events! Good Going!</p>
+					{% else %}
+					<p>You have not registered for any events! Get started now!</p>
+					{% endif %}
 				</div>
 			</div>
 			<div class="row">
+				{% for event in events_registered %}
 				<div class="col-md-4">
 					<div class="price-box">
-						<h2 class="pricing-plan">Beach Cleanup, Versova</h2>
-
-						<p>Description</p>
+						<h2 class="pricing-plan">{{ event.name }}</h2>
+						<p>{{ event.description }}</p>
 						<hr>
 						<ul class="details">
-
-							<li>Date</li>
-							<li>Location</li>
-							<li>Duration</li>
+							<li>{{ event.date }}, {{ event.location }}</li>
+							<li>{{ event.no_of_days }}</li>
 						</ul>
 						<a href="#" class="btn btn-primary btn-sm">Unregister!</a>
 					</div>
 				</div>
-				<div class="col-md-4">
-					<div class="price-box">
-						<h2 class="pricing-plan">Blood Donation Camp</h2>
-
-						<p>Description</p>
-						<hr>
-						<ul class="details">
-							<li>Date</li>
-							<li>Location</li>
-							<li>Duration</li>
-						</ul>
-						<a href="#" class="btn btn-primary btn-sm">Unregister</a>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="price-box">
-
-						<h2 class="pricing-plan">Volunteer at CUPA</h2>
-
-						<p>Description</p>
-						<hr>
-						<ul class="Details">
-							<li>Date</li>
-							<li>Location</li>
-							<li>Duration</li>
-						</ul>
-						<a href="#" class="btn btn-primary btn-sm">Unregister</a>
-					</div>
-				</div>
+				{% endfor %}				
 			</div>
 		</div>
 	</div>
@@ -175,55 +149,28 @@
 		<div class="gtco-container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
-					<h2>Upcoming Events</h2>
-					<p>Animal lover? Environment enthusiast? We have something for everyone! Volunteer and make a difference in someone's life!</p>
+					<h2>My Hosted Events</h2>
+					{% if events_hosted %}
+					<p>You organized the following events!</p>
+					{% else %}
+					<p>No events to show.</p>
+					{% endif %}
 				</div>
 			</div>
 			<div class="row">
+				{% for event in events_hosted %}
 				<div class="col-md-4">
 					<div class="price-box">
-						<h2 class="pricing-plan">Beach Cleanup, Versova</h2>
-
-						<p>Description</p>
-						<hr>
+						<h2 class="pricing-plan">event.name</h2>
+						<p>event.description</p>
 						<ul class="details">
-
-							<li>Date</li>
-							<li>Location</li>
-							<li>Volunteers Required</li>
+							<li>{{ event.date }}, {{ event.location }}</li>
+							<li>{{ event.no_of_days }}</li>
 						</ul>
-						<a href="#" class="btn btn-default btn-sm">Register Now!</a>
+						<a href="#" class="btn btn-default btn-sm">Delete</a>
 					</div>
 				</div>
-				<div class="col-md-4">
-					<div class="price-box">
-						<h2 class="pricing-plan">Blood Donation Camp</h2>
-
-						<p>Description</p>
-						<hr>
-						<ul class="details">
-							<li>Date</li>
-							<li>Location</li>
-							<li>Volunteers Required</li>
-						</ul>
-						<a href="#" class="btn btn-default btn-sm">Register Now!</a>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="price-box popular">
-						<div class="popular-text">New</div>
-						<h2 class="pricing-plan">Volunteer at Upkarita</h2>
-
-						<p>Description</p>
-						<hr>
-						<ul class="Details">
-							<li>Date</li>
-							<li>Location</li>
-							<li>Volunteers Required</li>
-						</ul>
-						<a href="#" class="btn btn-primary btn-sm">Register Now!</a>
-					</div>
-				</div>
+				{% endfor %}
 			</div>
 		</div>
 	</div>
@@ -233,7 +180,6 @@
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
 					<h2>Frequently Ask Questions</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
 				</div>
 			</div>
 			<div class="row">
