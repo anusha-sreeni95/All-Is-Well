@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'loginmanager.apps.LoginmanagerConfig',
     'signupmanager.apps.SignupmanagerConfig',
+	'upcomingevents',
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap3"
