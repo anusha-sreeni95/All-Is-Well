@@ -13,9 +13,6 @@ class LoginView(FormView):
     template_name = 'index.html'
 
     def get(self, request, *args, **kwargs):
-        login_form = self.login_form_class(request.GET)
-        signup_form_class = self.signup_form_class(request.GET)
-        form = self.get_form(self.login_form_class)
         context = {
             'login_form_class' : self.login_form_class(request.GET),
             'signup_form_class' : self.signup_form_class(request.GET)
@@ -35,15 +32,17 @@ class LoginView(FormView):
                 return HttpResponseRedirect("/homepage")
             else:
                 context = {
-                    'login_form_class' : self.login_form_class,
-                    'invalid'    : True,
+                    'login_form_class' : self.login_form_class(request.GET),
+                    'signup_form_class' : self.signup_form_class(request.GET),
+                    'login_invalid'    : True,
                     'message' : 'Please check the username and password'
                 }
                 return render(request, self.template_name, context=context)
         else:
             context = {
-                'login_form_class' : self.login_form_class,
-                'invalid'    : True,
+                'login_form_class' : self.login_form_class(request.GET),
+                'signup_form_class' : self.signup_form_class(request.GET),
+                'login_invalid'    : True,
                 'message' : 'Invalid form entry'
             }
             return render(request, self.template_name, context=context)

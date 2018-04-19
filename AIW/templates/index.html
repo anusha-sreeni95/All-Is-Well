@@ -126,6 +126,9 @@
 									</ul>
 									<div class="tab-content">
 										<div class="tab-content-inner active" data-content="signup">
+											{% if signup_invalid %}
+									      <div><p style="color:red">{{message}}</p></div>
+									    {% endif %}
 											{% if signup_form_class %}
 												<form method="post" action = "{% url 'signupview' %}">
 									        {% csrf_token %}
@@ -136,6 +139,9 @@
 										</div>
 
 										<div class="tab-content-inner" data-content="login">
+											{% if login_invalid %}
+									      <div><p style="color:red">{{message}}</p></div>
+									    {% endif %}
 											{% if login_form_class %}
 											<form method="post" action="{% url 'loginview' %}">
 								        {% csrf_token %}
