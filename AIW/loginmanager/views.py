@@ -4,7 +4,7 @@ from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
 from .forms import LoginForm
 from signupmanager.views import SignUpView
-from .utils import verify_credentials
+from .utils import verify_credentials, add_session
 
 class LoginView(FormView):
     form_class = LoginForm
@@ -27,7 +27,8 @@ class LoginView(FormView):
             password = form.cleaned_data['password']
 
             if(verify_credentials(email_address, password)):
-                return HttpResponseRedirect("/homepagemanager/homapage")
+                add_session(request, email_address)
+                return HttpResponseRedirect("/homepage")
             else:
                 context = {
                     'form_class' : form_class,

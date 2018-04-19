@@ -4,6 +4,7 @@ from django.views.generic.edit import FormView
 from django.urls import reverse_lazy
 from .forms import SignUpForm
 from .utils import save_details, new_user
+from loginmanager.utils import add_session
 
 class SignUpView(FormView):
     form_class = SignUpForm
@@ -31,7 +32,8 @@ class SignUpView(FormView):
 
             if(new_user(email_address)):
                 save_details(full_name, phone_number, email_address, password, interests, location)
-                return HttpResponseRedirect("/homepagemanager/homapage")
+                add_session(request, email_address)
+                return HttpResponseRedirect("/homepage")
             else:
                 context = {
                     'form_class' : form_class,

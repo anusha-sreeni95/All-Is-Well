@@ -11,6 +11,6 @@ class Event(models.Model):
     score = models.IntegerField()
     volunteers_required = models.IntegerField()
 
-    
+
     def __str__(self):
         return self.title
