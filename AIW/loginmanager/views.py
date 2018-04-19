@@ -8,7 +8,7 @@ from .utils import verify_credentials, add_session
 
 class LoginView(FormView):
     form_class = LoginForm
-    template_name = 'login.html'
+    template_name = 'index.html'
 
     def get(self, request, *args, **kwargs):
         form_class = self.get_form_class()
