@@ -12,6 +12,7 @@ class UpcomingEvents(TemplateView):
         events = Event.objects.order_by('date')
         print(events)
         context = {'events': events}
+        context = {}
         return render(request, self.template_name, context=context)
 
 
