@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^signupmanager/', include("signupmanager.urls")),
     url(r'^homepagemanager/', include("homepagemanager.urls")),
     url(r'^admin/', admin.site.urls),
+	url(r'^events/',include("upcomingevents.urls")),
 ]
 
 if settings.DEBUG:
