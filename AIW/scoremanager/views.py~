@@ -16,7 +16,7 @@ class ScoreBoardView(TemplateView):
             'events_registered' : events_participated,
             'events_hosted' : events_hosted,
             'total_score' : total_score,
-            'volunteers_per_event' : volunteers_per_event,
+            'volunteers_per_event' : volunteers_per_event
             'score_received_per_event' : score_received_per_event
         }
         return render(request, self.template_name, context=context)

@@ -1,0 +1,29 @@
+{% block content %}
+<div class="modal-dialog">
+  <div class="loginmodal-container">
+    {% if events_registered %}
+      <h1>Registered Events</h1>
+      {% for event in events_registered %}
+        <h2>{{ event.id }}</h2>
+        <h2>{{ event.volunteer_email }}</h2>
+        <h2>{{ event.score }}</h2>
+        <h2>{{ event.event_id }}</h2>
+      {% endfor %}
+    {% endif %}
+    {% if events_hosted %}
+      <h1>Hosted Events</h1>
+      {% for event in events_hosted %}
+        <h2>{{ event.id }}</h2>
+        <h2>{{ event.name }}</h2>
+        <h2>{{ event.description }}</h2>
+        <h2>{{ event.event_type }}</h2>
+        <h2>{{ event.host_email }}</h2>
+        <h2>{{ event.location }}</h2>
+        <h2>{{ event.date }}</h2>
+        <h2>{{ event.score }}</h2>
+        <h2>{{ event.volunteers_required }}</h2>
+      {% endfor %}
+    {% endif %}
+	</div>
+</div>
+{% endblock %}
