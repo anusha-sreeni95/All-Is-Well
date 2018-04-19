@@ -2,29 +2,6 @@ from upcomingevents.models import Event
 from homepagemanager.models import RegisteredEvents
 from signupmanager.models import UserData
 
-def user_events_details(user_email_address):
-    events_registered = RegisteredEvents.objects.filter(volunteer_email = user_email_address)
-    events_participated = []
-    total_score=0
-    score_received_per_event=[]
-    for event in events_registered:
-        score_received_per_event.append(event.score)
-        total_score+=event.score
-        if(event.score!=0):
-            event_details = Event.objects.filter(id = event.event_id)
-            for subevent in event_details:
-                events_participated.append(subevent)
-    events_hosted = Event.objects.filter(host_email = user_email_address)
-    volunteers_per_event=[]
-    for event in events_hosted:
-         volunteers=[]
-         volunteer_rows = RegisteredEvents.objects.filter(event_id = event.id)
-         for volunteer in volunteer_rows:
-             volunteers.append(volunteer.volunteer_email)
-         volunteers_per_event.append(volunteers)
-    return events_participated,events_hosted,total_score,volunteers_per_event,score_received_per_event
-
-
 def get_events_participated(email_address):
     registered_events = RegisteredEvents.objects.filter(volunteer_email = email_address)
     participated_events=[]
@@ -47,6 +24,12 @@ def get_events_hosted(email_address):
         for row in rows:
             users = UserData.objects.filter(email_address = row.volunteer_email)
             for user in users:
-                volunteers.append(user.full_name)
-        events.append({'event_name':event.event_name, 'description':event.description, 'date':event.date, 'location':event.location, 'volunteers':volunteers})
+                volunteers.append({'email_address':row.volunteer_email, 'name':user.full_name})
+        events.append({'id':event.id, 'event_name':event.event_name, 'description':event.description, 'date':event.date, 'location':event.location, 'volunteers':volunteers})
     return events
+
+def score_volunteer(volunteer_email, event_id):
+    max_score = Event.objects.filter(id = event_id)[0].score
+    score = max_score + UserData.objects.filter(email_address = volunteer_email)[0].score
+    UserData.objects.filter(email_address = volunteer_email).update(score = score)
+    RegisteredEvents.objects.filter(volunteer_email=volunteer_email, event_id = event_id).delete()
