@@ -27,6 +27,7 @@ urlpatterns = [
 	url(r'^events/',include("upcomingevents.urls")),
     url(r'^$',LoginView.as_view(),name="home"),
     url(r'^scoreboard/', include("scoremanager.urls")),
+    url(r'^eventcreate/', include("eventcreationmanager.urls")),
 ]
 
 

@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'signupmanager.apps.SignupmanagerConfig',
     'homepagemanager.apps.HomepagemanagerConfig',
     'upcomingevents.apps.UpcomingeventsConfig',
-    'scoremanager.apps.ScoremanagerConfig'
+    'scoremanager.apps.ScoremanagerConfig',
+    'eventcreationmanager.apps.EventcreationmanagerConfig'
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap3"
