@@ -124,83 +124,26 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-3 col-sm-6">
-					<div class="feature-center animate-box" data-animate-effect="fadeIn">
-						<span class="icon">
-							<i class="ti-vector"></i>
-						</span>
-						<h3>Pixel Perfect</h3>
-						<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. </p>
+				{% for event in events %}
+				<div class="col-md-4">
+					<div class="price-box">
+						<h2 class="pricing-plan">{{ event.name }}</h2>
+						
+						<p>{{ event.description }}</p>
+						<hr>
+						<ul class="details">
+							
+							<li>{{ event.date }}</li>
+							<li>{{ event.location }}</li>
+							<li>Type: {{ event.event_type }}</li>
+							<li>Volunteers Required: {{ event.volunteers_required }}</li>
+							<li>Max Score: {{ event.score }}</li>
+						</ul>
+						<a href="#" class="btn btn-success btn-sm">Register Now!</a>
 					</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<div class="feature-center animate-box" data-animate-effect="fadeIn">
-						<span class="icon">
-							<i class="ti-tablet"></i>
-						</span>
-						<h3>Fully Responsive</h3>
-						<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. </p>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<div class="feature-center animate-box" data-animate-effect="fadeIn">
-						<span class="icon">
-							<i class="ti-settings"></i>
-						</span>
-						<h3>Web Development</h3>
-						<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. </p>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<div class="feature-center animate-box" data-animate-effect="fadeIn">
-						<span class="icon">
-							<i class="ti-ruler-pencil"></i>
-						</span>
-						<h3>Web Design</h3>
-						<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. </p>
-					</div>
-				</div>
-
-				<div class="col-md-3 col-sm-6">
-					<div class="feature-center animate-box" data-animate-effect="fadeIn">
-						<span class="icon">
-							<i class="ti-paint-roller"></i>
-						</span>
-						<h3>Accent Colours</h3>
-						<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. </p>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<div class="feature-center animate-box" data-animate-effect="fadeIn">
-						<span class="icon">
-							<i class="ti-announcement"></i>
-						</span>
-						<h3>Theme Updates</h3>
-						<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. </p>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<div class="feature-center animate-box" data-animate-effect="fadeIn">
-						<span class="icon">
-							<i class="ti-stats-up"></i>
-						</span>
-						<h3>Increase Earnings</h3>
-						<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. </p>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6">
-					<div class="feature-center animate-box" data-animate-effect="fadeIn">
-						<span class="icon">
-							<i class="ti-magnet"></i>
-						</span>
-						<h3>Passive Income</h3>
-						<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. </p>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
+				</div>				
+				{% endfor %}
+				
 
 	
 	</div>
