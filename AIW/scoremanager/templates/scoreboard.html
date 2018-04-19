@@ -126,29 +126,28 @@
 			<div class="row">
 				<div class="col-md-8 text-left gtco-heading">
 					<h2>Participated Events</h2>
-					{% if events_registered %}
+					{% if events_participated %}
 					You volunteered and contributed to the following events.
 					{% else %}
 					<p>You did not volunteer for any event :(</p>
 					{% endif %}
 				</div>
 			</div>
+
 			<div class="row">
-				{% for event in events_registered %}
-				{% for score in score_received_per_event %}
-				<div class="col-md-5">
+				{% for event in events_participated %}
+				<div class="col-md-6">
 					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
 						<span class="icon">
 							<i class="icon-check"></i>
 						</span>
 						<div class="feature-copy">
-							<h3>{{ event.name }}</h3>
+							<h3>{{ event.event_name }}</h3>
 							{{ event.description }}<br>
 							{{ event.date}}, {{ event.location }}<br>
-							Score: {{ score}}
+							Score: {{ event.score}}
 						</div>
-					</div>
-				{% endfor %}
+					</div
 				{% endfor %}
 				<p><b>Total Score: {{ total_score }}</b></p>
 				</div>
@@ -159,34 +158,32 @@
 			<div class="row">
 				<div class="col-md-8 text-left gtco-heading">
 					<h2>Your Hosted Events</h2>
-					{% if events_hosted %}
+					{% if hosted_events %}
 					You organized the following events.
 					{% endif %}
 				</div>
 			</div>
 			<div class="row">
-				{% for event in events_hosted %}
-				{% for volunteers in volunteers_per_event %}
+				{% for event in hosted_events %}
 				<div class="col-md-5">
 					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
 						<span class="icon">
 							<i class="icon-check"></i>
 						</span>
 						<div class="feature-copy">
-							<h3>{{ event.name }}</h3>
+							<h3>{{ event.event_name }}</h3>
 							{{ event.description }}<br>
 							{{ event.date}}, {{ event.location }}<br>
 							<li class="has-dropdown">
 							Volunteers
-							{% for volunteer in volunteers %}
+							{% for volunteer in event.volunteers %}
 								<ul class="dropdown">
-									<li>{{ volunteer  }}</li>
+									<li>{{ volunteer }}</li>
 								</ul>
 							</li>
 							{% endfor %}
 						</div>
 					</div>
-				{% endfor %}
 				{% endfor %}
 				</div>
 			</div>
