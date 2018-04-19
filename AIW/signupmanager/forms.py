@@ -6,5 +6,5 @@ class SignUpForm(forms.Form):
     email_address = forms.EmailField(label='Email Address', max_length=254, required=True)
     password = forms.CharField(label='Password', widget=forms.PasswordInput)
     location = forms.CharField(label = 'Location', required = True)
-    interests_list = [('Environment', 'Environment'), ('Education', 'Education'), ('Animal','Animal'), ('Medical','Medical')]
-    interests = forms.MultipleChoiceField(choices = interests_list, widget=forms.CheckboxSelectMultiple)
+    # interests_list = [('Environment', 'Environment'), ('Education', 'Education'), ('Animal','Animal'), ('Medical','Medical')]
+    # interests = forms.MultipleChoiceField(choices = interests_list, widget=forms.CheckboxSelectMultiple)

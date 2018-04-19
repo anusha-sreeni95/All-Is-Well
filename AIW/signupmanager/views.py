@@ -8,7 +8,7 @@ from loginmanager.utils import add_session
 
 class SignUpView(FormView):
     form_class = SignUpForm
-    template_name = 'signup.html'
+    template_name = 'index.html'
 
     def get(self, request, *args, **kwargs):
         form_class = self.get_form_class()
