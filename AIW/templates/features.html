@@ -9,12 +9,12 @@
 	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FreeHTML5.co" />
-	<!-- 
+	<!--
 	//////////////////////////////////////////////////////
 
-	FREE HTML5 TEMPLATE 
+	FREE HTML5 TEMPLATE
 	DESIGNED & DEVELOPED by FREEHTML5.CO
-		
+
 	Website: 		http://freehtml5.co/
 	Email: 			info@freehtml5.co
 	Twitter: 		http://twitter.com/fh5co
@@ -35,7 +35,7 @@
 	<meta name="twitter:card" content="" />
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
-	
+
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
 	<!-- Icomoon Icon Fonts-->
@@ -64,23 +64,23 @@
 
 	</head>
 	<body>
-		
+
 	<div class="gtco-loader"></div>
-	
+
 	<div id="page">
 
-	
+
 	<div class="page-inner">
 	<nav class="gtco-nav" role="navigation">
 		<div class="gtco-container">
-			
+
 			<div class="row">
 				<div class="col-sm-4 col-xs-12">
 					<div id="gtco-logo"><a href="index.html">All Is Well <em>.</em></a></div>
 				</div>
 				<div class="col-xs-8 text-right menu-1">
 					<ul>
-						<li class="active"><a href="features.html">Upcoming Events</a></li>
+						<li class="active"><a href="{%  url 'upcomingevents' %}">Upcoming Events</a></li>
 						<li><a href="tour.html">Donate</a></li>
 						<li><a href="pricing.html">About Us</a></li>
 						<li><a href="contact.html">Contact</a></li>
@@ -88,33 +88,33 @@
 					</ul>
 				</div>
 			</div>
-			
+
 		</div>
 	</nav>
-	
+
 	<header id="gtco-header" class="gtco-cover gtco-cover-sm" role="banner" style="background-image: url({%static 'images/kids_event.jpeg' %})">
 		<div class="overlay"></div>
 		<div class="gtco-container">
 			<div class="row">
 				<div class="col-md-12 col-md-offset-0 text-left">
-					
+
 
 					<div class="row row-mt-15em">
 
 						<div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
 							<span class="intro-text-small">Contribute to our</span>
-							<h1>Upcoming Events</h1>	
+							<h1>Upcoming Events</h1>
 						</div>
-						
+
 					</div>
-							
-					
+
+
 				</div>
 			</div>
 		</div>
 	</header>
-	
-	
+
+
 	<div id="gtco-features" class="border-bottom">
 		<div class="gtco-container">
 			<div class="row">
@@ -128,11 +128,11 @@
 				<div class="col-md-4">
 					<div class="price-box">
 						<h2 class="pricing-plan">{{ event.name }}</h2>
-						
+
 						<p>{{ event.description }}</p>
 						<hr>
 						<ul class="details">
-							
+
 							<li>{{ event.date }}</li>
 							<li>{{ event.location }}</li>
 							<li>Type: {{ event.event_type }}</li>
@@ -141,11 +141,11 @@
 						</ul>
 						<a href="#" class="btn btn-success btn-sm">Register Now!</a>
 					</div>
-				</div>				
+				</div>
 				{% endfor %}
-				
 
-	
+
+
 	</div>
 
 	<footer id="gtco-footer" role="contentinfo">
@@ -188,7 +188,7 @@
 			<div class="row copyright">
 				<div class="col-md-12">
 					<p class="pull-left">
-						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small> 
+						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small>
 						<small class="block">Designed by <a href="http://FreeHTML5.co/" target="_blank">FreeHTML5.co</a> Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
 					</p>
 					<p class="pull-right">
@@ -211,7 +211,7 @@
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
-	
+
 	<!-- jQuery -->
 	<script src="{% static 'js/jquery.min.js' %}"></script>
 	<!-- jQuery Easing -->
@@ -232,4 +232,3 @@
 
 	</body>
 </html>
-

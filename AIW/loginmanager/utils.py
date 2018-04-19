@@ -1,4 +1,5 @@
 from signupmanager.models import UserData
+from django.http import HttpResponseRedirect
 from .models import SessionData
 from hashlib import sha1
 import base64
@@ -24,7 +25,8 @@ def add_session(request, email_address):
         row = SessionData(email_address = email_address, ip_address = ip_address)
         row.save()
 
-def remove_session(request, email_address):
+def remove_session(request):
+    email_address = request.session['email_address']
     if(ipaddress.ip_address(request.META['REMOTE_ADDR']).is_private):
         ip_address = request.META['REMOTE_ADDR']
     else:
@@ -32,4 +34,5 @@ def remove_session(request, email_address):
     rows = SessionData.objects.filter(email_address = email_address, ip_address = ip_address)
     for row in rows:
         row.delete()
+    request.session['email_address'] = ''
     return HttpResponseRedirect("/login")
