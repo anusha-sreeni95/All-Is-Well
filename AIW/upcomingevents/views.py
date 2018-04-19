@@ -9,12 +9,13 @@ class UpcomingEvents(TemplateView):
     template_name = 'features.html'
 
     def get(self, request, *args, **kwargs):
-        events = Event.objects.order_by('date')
-        print(events)
-        for event in events:
-        	print(event)
-        	print(event.name)
-        context = {'events': events}
+        # events = Event.objects.order_by('date')
+        # print(events)
+        # for event in events:
+        # 	print(event)
+        # 	print(event.name)
+        # context = {'events': events}
+        context = {}
         return render(request, self.template_name, context=context)
 
 
