@@ -134,8 +134,8 @@
 						<p>{{ event.description }}</p>
 						<hr>
 						<ul class="details">
-							<li>{{ event.date }}, {{ event.location }}</li>
-							<li>{{ event.no_of_days }}</li>
+							{{ event.date }}, {{ event.location }}<br>
+							Duration: {{ event.no_of_days }} day(s)<br>
 						</ul>
 						<a href="#" class="btn btn-primary btn-sm">Unregister!</a>
 					</div>
@@ -164,10 +164,10 @@
 						<h2 class="pricing-plan">{{ event.event_name }}</h2>
 						<p>{{ event.description }}</p>
 						<ul class="details">
-							<li>{{ event.date }}, {{ event.location }}</li>
-							<li>{{ event.no_of_days }}</li>
+							{{ event.date }}, {{ event.location }}<br>
+							Duration: {{ event.no_of_days }} day(s)<br>
 						</ul>
-						<a href="#" class="btn btn-default btn-sm">Delete</a>
+						<a href="#" class="btn btn-primary btn-sm">Delete</a>
 					</div>
 				</div>
 				{% endfor %}
