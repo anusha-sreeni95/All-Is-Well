@@ -31,6 +31,7 @@ class LoginView(FormView):
 
             if(verify_credentials(email_address, password)):
                 add_session(request, email_address)
+                request.session['email_address'] = email_address
                 return HttpResponseRedirect("/homepage")
             else:
                 context = {

@@ -27,11 +27,10 @@ class SignUpView(FormView):
             phone_number = form.cleaned_data['phone_number']
             email_address = form.cleaned_data['email_address']
             password = form.cleaned_data['password']
-            interests = form.cleaned_data['interests']
             location = form.cleaned_data['location']
 
             if(new_user(email_address)):
-                save_details(full_name, phone_number, email_address, password, interests, location)
+                save_details(full_name, phone_number, email_address, password,  location)
                 add_session(request, email_address)
                 return HttpResponseRedirect("/homepage")
             else:
