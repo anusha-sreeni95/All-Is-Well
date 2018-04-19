@@ -5,6 +5,7 @@ class SignUpForm(forms.Form):
     phone_number = forms.CharField(label='Phone Number', max_length=10)
     email_address = forms.EmailField(label='Email Address', max_length=254)
     password = forms.CharField(label='Password', widget=forms.PasswordInput)
-    location = forms.CharField(label = 'Location')
+    location_list = [('Bangalore', 'Bangalore'), ('Chennai','Chennai'), ('Delhi', 'Delhi'), ('Hyderabad', 'Hyderabad'), ('Mumbai', 'Mumbai'), ('Pune', 'Pune')]
+    location = forms.ChoiceField(label = 'Location', choices=location_list)
     # interests_list = [('Environment', 'Environment'), ('Education', 'Education'), ('Animal','Animal'), ('Medical','Medical')]
     # interests = forms.MultipleChoiceField(choices = interests_list, widget=forms.CheckboxSelectMultiple)

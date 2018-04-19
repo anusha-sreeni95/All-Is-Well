@@ -24,11 +24,12 @@ urlpatterns = [
     url(r'^signup/', include("signupmanager.urls")),
     url(r'^homepage/', include("homepagemanager.urls")),
     url(r'^admin/', admin.site.urls),
-	url(r'^events/',include("upcomingevents.urls")),
+    url(r'^events/',include("upcomingevents.urls")),
     url(r'^$',LoginView.as_view(),name="home"),
     url(r'^scoreboard/', include("scoremanager.urls")),
     url(r'^eventcreate/', include("eventcreationmanager.urls")),
-    url(r'^donate/', include("donationmanager.urls"))
+    url(r'^donate/', include("donationmanager.urls")),
+    url(r'^profile/', include("profilelinkgenerator.urls")),
 ]
 
 

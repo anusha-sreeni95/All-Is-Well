@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'upcomingevents.apps.UpcomingeventsConfig',
     'scoremanager.apps.ScoremanagerConfig',
     'eventcreationmanager.apps.EventcreationmanagerConfig',
-    'donationmanager.apps.DonationmanagerConfig'
+    'donationmanager.apps.DonationmanagerConfig',
+    'profilelinkgenerator.apps.ProfilelinkgeneratorConfig'
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap3"

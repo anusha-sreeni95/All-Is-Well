@@ -16,3 +16,4 @@ class UserData(models.Model):
     location = models.TextField(null = True)
     profile_photo = models.TextField(null = True)
     score = models.IntegerField(default = 0)
+    profile_link = models.TextField(null=True)
