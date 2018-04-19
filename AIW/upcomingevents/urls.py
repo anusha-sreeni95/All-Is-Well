@@ -1,6 +1,6 @@
 from django.conf.urls import url
-from . import views
+from .views import UpcomingEvents
 
 urlpatterns = [
-    url(r'^$', views.event_list, name='event_list'),
+    url(r'^$', UpcomingEvents.as_view(), name='upcomingevents'),
 ]
