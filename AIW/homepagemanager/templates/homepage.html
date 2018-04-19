@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE HTML>
 
 <html>
@@ -137,7 +138,10 @@
 							{{ event.date }}, {{ event.location }}<br>
 							Duration: {{ event.no_of_days }} day(s)<br>
 						</ul>
-						<a href="#" class="btn btn-primary btn-sm">Unregister!</a>
+						<form method="post">
+							{% csrf_token %}
+							<button name="event_id" type="submit" value="unregister_{{ event.id }}" class="btn btn-info btn-md">Unregister</button>        					
+      					</form>
 					</div>
 				</div>
 				{% endfor %}
@@ -167,7 +171,10 @@
 							{{ event.date }}, {{ event.location }}<br>
 							Duration: {{ event.no_of_days }} day(s)<br>
 						</ul>
-						<a href="#" class="btn btn-primary btn-sm">Delete</a>
+						<form method="post">
+							{% csrf_token %}
+							<button name="event_id" type="submit" value="delete_{{ event.id }}" class="btn btn-info btn-md">Delete</button>        					
+      					</form>
 					</div>
 				</div>
 				{% endfor %}

@@ -13,3 +13,11 @@ def user_events_details(user_email_address):
     print(events_participated)
     events_hosted = Event.objects.filter(host_email = user_email_address)
     return events_participated,events_hosted
+
+def unregister_event(event_id,volunteer_email,score):
+    RegisteredEvents.objects.filter(event_id = event_id,
+                volunteer_email = volunteer_email).delete()
+
+def delete_event(event_id,volunteer_email):
+    Event.objects.filter(id=event_id).delete()
+    RegisteredEvents.objects.filter(event_id = event_id).delete()
