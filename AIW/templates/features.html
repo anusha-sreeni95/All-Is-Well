@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -139,7 +140,13 @@
 							<li>Volunteers Required: {{ event.volunteers_required }}</li>
 							<li>Max Score: {{ event.score }}</li>
 						</ul>
-						<a href="#" class="btn btn-success btn-sm">Register Now!</a>
+						<form method="post">
+							{% csrf_token %}
+
+							<button name="event_id" type="submit" value="{{ event.id }}" class="btn btn-info btn-md">Register Now!</button>
+        					
+      					</form>
+						
 					</div>
 				</div>
 				{% endfor %}
