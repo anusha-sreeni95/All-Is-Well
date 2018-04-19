@@ -8,26 +8,30 @@ from .utils import save_details, new_user, generate_profile_link
 from loginmanager.utils import add_session
 
 class SignUpView(FormView):
-    login_form_class = LoginForm
-    signup_form_class = SignUpForm
+    form_class = SignUpForm
     template_name = 'index.html'
 
     def get(self, request, *args, **kwargs):
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        login_form_class = LoginForm
         context = {
-            'login_form_class' : self.login_form_class(request.GET),
-            'signup_form_class' : self.signup_form_class(request.GET)
+            'signup_form_class' : form_class,
+            'login_form_class' : login_form_class
         }
         return render(request, self.template_name, context=context)
 
     def post(self, request, *args, **kwargs):
-        signup_form = self.signup_form_class(request.POST)
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        login_form_class = LoginForm
 
-        if(signup_form.is_valid()):
-            full_name = signup_form.cleaned_data['full_name']
-            phone_number = signup_form.cleaned_data['phone_number']
-            email_address = signup_form.cleaned_data['email_address']
-            password = signup_form.cleaned_data['password']
-            location = signup_form.cleaned_data['location']
+        if(form.is_valid()):
+            full_name = form.cleaned_data['full_name']
+            phone_number = form.cleaned_data['phone_number']
+            email_address = form.cleaned_data['email_address']
+            password = form.cleaned_data['password']
+            location = form.cleaned_data['location']
 
             if(new_user(email_address)):
                 profile_link = generate_profile_link(request, full_name, email_address, password)
@@ -36,16 +40,16 @@ class SignUpView(FormView):
                 return HttpResponseRedirect("/homepage")
             else:
                 context = {
-                    'login_form_class' : self.login_form_class(request.GET),
-                    'signup_form_class' : self.signup_form_class(request.GET),
+                    'signup_form_class' : form_class,
+                    'login_form_class' : login_form_class,
                     'signup_invalid'    : True,
                     'message' : 'User already exists'
                 }
                 return render(request, self.template_name, context=context)
         else:
             context = {
-                'login_form_class' : self.login_form_class(request.GET),
-                'signup_form_class' : self.signup_form_class(request.GET),
+                'signup_form_class' : form_class,
+                'login_form_class' : login_form_class,
                 'signup_invalid'    : True,
                 'message' : 'Invalid form entry'
             }
