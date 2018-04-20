@@ -9,7 +9,8 @@ def get_events_participated(email_address):
     for event in registered_events:
         rows = Event.objects.filter(id=event.event_id)
         for row in rows:
-            participated_events.append({'event_name':row.event_name, 'description':row.description, 'date':row.date, 'location':row.location, 'score':event.score})
+            if(event.score!=0):
+                participated_events.append({'event_name':row.event_name, 'description':row.description, 'date':row.date, 'location':row.location, 'score':event.score})
         total_score+=event.score
     return participated_events, total_score
 
