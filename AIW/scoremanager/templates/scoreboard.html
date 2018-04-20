@@ -121,8 +121,9 @@
 				</div>
 			</div>
 
-			<div class="row">
+			
 				{% for event in events_participated %}
+				<div class="row">
 				<div class="col-md-12">
 					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
 						<span class="icon">
@@ -134,11 +135,11 @@
 							{{ event.date}}, {{ event.location }}<br>
 							Score: {{ event.score}}
 						</div>
-					</div
-				{% endfor %}
-				<p><b>Total Score: {{ total_score }}</b></p>
+					</div>
 				</div>
-			</div>
+				</div>
+				{% endfor %}
+				<p><b>Total Score: {{ total_score }}</b></p>			
 		</div>
 
 		<div class="gtco-container">
@@ -150,8 +151,9 @@
 					{% endif %}
 				</div>
 			</div>
-			<div class="row">
+			
 				{% for event in hosted_events %}
+				<div class="row">
 				<div class="col-md-12">
 					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
 						<span class="icon">
@@ -180,9 +182,11 @@
 							{% endif %}
 						</div>
 					</div>
+					</div>
+					</div>
 				{% endfor %}
-				</div>
-			</div>
+				
+			
 		</div>
 	</div>
 
