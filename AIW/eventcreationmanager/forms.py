@@ -5,7 +5,8 @@ class EventCreationForm(forms.Form):
     description = forms.CharField(label='Description', max_length = 1000)
     event_type_list = [('Environment','Environment'), ('Education','Education'), ('Health Care','Health Care'), ('Animal Care', 'Animal Care')]
     event_type = forms.ChoiceField(label='Event Type', choices = event_type_list)
-    location = forms.CharField(label = 'Location', max_length=50)
+    location_list = [('Bangalore', 'Bangalore'), ('Chennai','Chennai'), ('Delhi', 'Delhi'), ('Hyderabad', 'Hyderabad'), ('Mumbai', 'Mumbai'), ('Pune', 'Pune')]
+    location = forms.ChoiceField(label = 'Location', choices=location_list)
     start_date = forms.DateTimeField(label = 'Event Date', widget=forms.TextInput(attrs={'type': 'date'} ))
     volunteers_required = forms.IntegerField(label = 'Number of volunteers required')
     no_of_days = forms.IntegerField(label = 'Duration of event (days)')

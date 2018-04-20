@@ -14,8 +14,9 @@ def user_events_details(user_email_address):
     return events_participated,events_hosted
 
 def unregister_event(event_id,volunteer_email,score):
-    RegisteredEvents.objects.filter(event_id = event_id,
-                volunteer_email = volunteer_email).delete()
+    RegisteredEvents.objects.filter(event_id = event_id, volunteer_email = volunteer_email).delete()
+    volunteers_registered = Event.objects.filter(id = event_id)[0].volunteers_registered
+    Event.objects.filter(id = event_id).update(volunteers_registered = volunteers_registered-1)
 
 def delete_event(event_id,volunteer_email):
     Event.objects.filter(id=event_id).delete()
