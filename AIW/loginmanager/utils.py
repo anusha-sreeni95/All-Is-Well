@@ -16,6 +16,7 @@ def verify_credentials(email_address, password):
             return False
 
 def add_session(request, email_address):
+    request.session.set_expiry(7200)
     if(ipaddress.ip_address(request.META['REMOTE_ADDR']).is_private):
         ip_address = request.META['REMOTE_ADDR']
     else:
@@ -23,6 +24,7 @@ def add_session(request, email_address):
     rows = SessionData.objects.filter(email_address = email_address, ip_address = ip_address)
     if(len(rows) == 0):
         row = SessionData(email_address = email_address, ip_address = ip_address)
+        request.session['email_address'] = email_address
         row.save()
 
 def remove_session(request):

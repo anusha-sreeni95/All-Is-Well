@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
+from django.http import HttpResponse, HttpResponseRedirect
 from .utils import user_events_details, unregister_event, delete_event, get_profile_link
 
 class HomePageView(TemplateView):
@@ -7,14 +8,17 @@ class HomePageView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         email_address = request.session['email_address']
-        events_registered, events_hosted = user_events_details(email_address)
-        profile_link = get_profile_link(email_address)
-        context = {
-            'events_registered' : events_registered,
-            'events_hosted' : events_hosted,
-            'profile_link'   : profile_link
-        }
-        return render(request, self.template_name, context=context)
+        if(email_address!=''):
+            events_registered, events_hosted = user_events_details(email_address)
+            profile_link = get_profile_link(email_address)
+            context = {
+                'events_registered' : events_registered,
+                'events_hosted' : events_hosted,
+                'profile_link'   : profile_link
+            }
+            return render(request, self.template_name, context=context)
+        else:
+            return HttpResponseRedirect("/login")
 
     def post(self, request, *args, **kwargs):
         email_address = request.session['email_address']

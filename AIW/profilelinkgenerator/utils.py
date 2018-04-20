@@ -1,4 +1,7 @@
 from profilelinkgenerator.models import UrlTokens
 
-def validate_token(token, email_address):
-    return UrlTokens.objects.filter(token=token, email_address=email_address).exists()
+def get_email_address(token):
+    if(UrlTokens.objects.filter(token=token).exists()):
+        return UrlTokens.objects.filter(token=token)[0].email_address
+    else:
+        return None

@@ -10,12 +10,16 @@ class CreateEventView(FormView):
     template_name = 'create_event.html'
 
     def get(self, request, *args, **kwargs):
-        form_class = self.get_form_class()
-        form = self.get_form(form_class)
-        context = {
-            'form_class' : form_class
-        }
-        return render(request, self.template_name, context=context)
+        email_address = request.session['email_address']
+        if(email_address!=''):
+            form_class = self.get_form_class()
+            form = self.get_form(form_class)
+            context = {
+                'form_class' : form_class
+            }
+            return render(request, self.template_name, context=context)
+        else:
+            return HttpResponseRedirect("/login")
 
     def post(self, request, *args, **kwargs):
         form_class = self.get_form_class()
