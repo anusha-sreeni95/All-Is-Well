@@ -169,8 +169,10 @@
 									<li>{{ volunteer.name }}
 										<form method="post">
 										{% csrf_token %}
+										{% if volunteer.not_scored %}
 										<button name="event_id" type="submit" value="{{volunteer.email_address}}:{{ event.id }}" class="btn btn-info btn-md">Score</button>
-			      				</form>
+										{% endif %}
+										</form>
 									</li>
 								</ul>
 							</li>
