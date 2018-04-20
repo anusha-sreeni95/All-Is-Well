@@ -15,8 +15,8 @@ def get_events_participated(email_address):
 
 def get_events_hosted(email_address):
     hosted_events = Event.objects.filter(host_email = email_address)
+    events = []
     for event in hosted_events:
-        events = []
         registered_participants = RegisteredEvents.objects.filter(event_id = event.id)
         volunteers = []
         for registered_participant in registered_participants:
