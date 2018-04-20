@@ -39,7 +39,6 @@ class CreateEventView(FormView):
             create_event(event_name, description, event_type, location, start_date, volunteers_required, no_of_days, hours_per_day, host_email)
             return HttpResponseRedirect("/homepage")
         else:
-            print("Error")
             context = {
                 'form_class' : form_class,
                 'invalid'    : True,

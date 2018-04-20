@@ -37,7 +37,6 @@ class DonationView(FormView):
             create_donation(donation_title, donation_item_description, ngo_name, location, creation_date, ngo_email)
             return HttpResponseRedirect("/homepage")
         else:
-            print("Error")
             context = {
                 'form_class' : form_class,
                 'invalid'    : True,
