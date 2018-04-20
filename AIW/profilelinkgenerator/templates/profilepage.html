@@ -117,10 +117,13 @@
 				</div>
 			</div>
 			<div class="row">
-				<h4>Name: {{profile.full_name}}</h4>
-				<h4>Email ID: {{profile.email_address}}</h4>
-				<h4>Location: {{profile.location}}</h4>
-				<h4>Total Score: {{profile.score}}</h4>
+				<ul>
+					<li><b>Name: </b>{{profile.full_name}}</li>
+					<li><b>Email ID: </b>{{profile.email_address}}</li>
+					<li><b>Location: </b>{{profile.location}}</li>
+					<li><b>Total Score: </b>{{profile.score}}</li>
+				</ul>
+				<br>
 			</div>
 			<div class="row">
 				<div class="col-md-8 text-left gtco-heading">
@@ -132,13 +135,15 @@
 				{% for event in events_participated %}
 				<div class="col-md-12">
 					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-						<div class="feature-copy">
-							<h3>Event Name: {{ event.event_name }}</h3>
-							<h3>Description: {{ event.description }}</h3>
-							<h3>Date: {{ event.date }}</h3>
-							<h3>Location: {{ event.location }}</h3>
-							<h3>Score: {{ event.score }}</h3>
-						</div>
+						<ul>
+							<li><b>Event Name: </b>{{ event.event_name }}</li>
+							<li><b>Description: </b>{{ event.description }}</li>
+							<li><b>Date: </b>{{ event.date }}</li>
+							<li><b>Location: </b>{{ event.location }}</li>
+							<li><b>Score: </b>{{ event.score }}</li>
+						</ul>
+						<br>
+						<br>
 					</div>
 				{% endfor %}
 				{% endif %}
@@ -150,16 +155,20 @@
 			<div class="row">
 				<div class="col-md-8 text-left gtco-heading">
 					{% if hosted_events %}
-					<h2>Hosted Events</h2>
+					<h3>Hosted Events</h3>
 
 					{% for event in hosted_events %}
 					<div class="col-md-12">
-							<div class="feature-copy">
-								<h3>Event Name: {{ event.event_name }}</h3>
-								<h3>Description: {{ event.description }}</h3>
-								<h3>Date: {{ event.date }}</h3>
-								<h3>Location: {{ event.location }}</h3>
-							</div>
+							
+								<ul>
+									<li><b>Event Name: </b>{{ event.event_name }}</li>
+									<li><b>Description: </b>{{ event.description }}</li>	
+									<li><b>Date: </b>{{ event.date }}</li>
+									<li><b>Location: </b>{{ event.location }}</li>
+								</ul>
+								<br>
+								<br>
+							
 					{% endfor %}
 					{% endif %}
 				</div>
