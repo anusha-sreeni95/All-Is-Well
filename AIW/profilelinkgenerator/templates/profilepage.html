@@ -108,7 +108,7 @@
 		</div>
 	</header>
 
-	<div class="gtco-section border-bottom">
+	<!-- <div class="gtco-section border-bottom">
 		<div class="gtco-container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
@@ -125,9 +125,64 @@
 				<h4>Events: </h4>
 			</div>
 		</div>
+	</div> -->
+	<div class="gtco-section border-bottom">
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+					<h2>Profile</h2>
+					<p>People care about issues that bring them from empathy to ownership. All Is Well brings people closer to discovering and working on these very issues.</p>
+				</div>
+			</div>
+			<div class="row">
+				<h4>Name: {{profile.full_name}}</h4>
+				<h4>Email ID: {{profile.email_address}}</h4>
+				<h4>Location: {{profile.location}}</h4>
+				<h4>Total Score: {{profile.score}}</h4>
+			</div>
+			<div class="row">
+				<div class="col-md-8 text-left gtco-heading">
+					{% if events_participated %}
+					<h2>Participated Events</h2>
+
+				</div>
+			</div>
+
+			<div class="row">
+				{% for event in events_participated %}
+				<div class="col-md-12">
+					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
+						<div class="feature-copy">
+							<h3>{{ event.event_name }}</h3>
+						</div>
+					</div>
+				{% endfor %}
+				{% endif %}
+				</div>
+			</div>
+		</div>
+
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-8 text-left gtco-heading">
+					{% if hosted_events %}
+					<h2>Hosted Events</h2>
+
+					{% for event in hosted_events %}
+					<div class="col-md-12">
+							<div class="feature-copy">
+								<h3>{{ event.event_name }}</h3>
+							</div>
+					{% endfor %}
+					{% endif %}
+				</div>
+			</div>
+			<div class="row">
+
+				</div>
+			</div>
+		</div>
 	</div>
-
-
 
 
 	<footer id="gtco-footer" role="contentinfo">
