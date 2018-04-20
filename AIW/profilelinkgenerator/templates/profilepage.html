@@ -123,7 +123,6 @@
 					<li><b>Location: </b>{{profile.location}}</li>
 					<li><b>Total Score: </b>{{profile.score}}</li>
 				</ul>
-				<br>
 			</div>
 			<div class="row">
 				<div class="col-md-8 text-left gtco-heading">
@@ -131,8 +130,8 @@
 					<h2>Participated Events</h2>
 				</div>
 			</div>
-			<div class="row">
 				{% for event in events_participated %}
+				<div class="row">
 				<div class="col-md-12">
 					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
 						<ul>
@@ -142,8 +141,6 @@
 							<li><b>Location: </b>{{ event.location }}</li>
 							<li><b>Score: </b>{{ event.score }}</li>
 						</ul>
-						<br>
-						<br>
 					</div>
 				{% endfor %}
 				{% endif %}
@@ -152,30 +149,28 @@
 		</div>
 
 		<div class="gtco-container">
-			<div class="row">
-				<div class="col-md-8 text-left gtco-heading">
+
+			  <div class="col-md-8 text-left gtco-heading">
 					{% if hosted_events %}
-					<h3>Hosted Events</h3>
+					<h2>Hosted Events</h2>
+				</div>
 
 					{% for event in hosted_events %}
-					<div class="col-md-12">
-
+					<div class="row">
+						<div class="col-md-8 text-left gtco-heading">
+							<div class="feature-left animate-box" data-animate-effect="fadeInLeft" class="col-md-12">
 								<ul>
 									<li><b>Event Name: </b>{{ event.event_name }}</li>
 									<li><b>Description: </b>{{ event.description }}</li>
 									<li><b>Date: </b>{{ event.date }}</li>
 									<li><b>Location: </b>{{ event.location }}</li>
+									<li><b>Volunteers Registered: </b>{{ event.volunteers_registered }}</li>
 								</ul>
-								<br>
-								<br>
-
+							</div>
+						</div>
+					</div>
 					{% endfor %}
 					{% endif %}
-				</div>
-			</div>
-			<div class="row">
-
-				</div>
 			</div>
 		</div>
 	</div>

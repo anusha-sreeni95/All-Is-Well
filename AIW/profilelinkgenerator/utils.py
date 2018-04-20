@@ -24,5 +24,5 @@ def events_hosted(email_address):
     hosted_events = Event.objects.filter(host_email = email_address)
     events = []
     for event in hosted_events:
-        events.append({'event_name':event.event_name, 'description':event.description, 'date':event.date, 'location':event.location})
+        events.append({'event_name':event.event_name, 'description':event.description, 'date':event.date, 'location':event.location, 'volunteers_registered':event.volunteers_registered})
     return events

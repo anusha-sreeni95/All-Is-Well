@@ -7,5 +7,5 @@ class SignUpForm(forms.Form):
     password = forms.CharField(label='Password', widget=forms.PasswordInput)
     location_list = [('Bangalore', 'Bangalore'), ('Chennai','Chennai'), ('Delhi', 'Delhi'), ('Hyderabad', 'Hyderabad'), ('Mumbai', 'Mumbai'), ('Pune', 'Pune')]
     location = forms.ChoiceField(label = 'Location', choices=location_list)
-    # interests_list = [('Environment', 'Environment'), ('Education', 'Education'), ('Animal','Animal'), ('Medical','Medical')]
-    # interests = forms.MultipleChoiceField(choices = interests_list, widget=forms.CheckboxSelectMultiple)
+    scope_list = [('Individual', 'Individual'), ('Organization', 'Organization')]
+    scope = forms.ChoiceField(label = 'Sign Up as: ', choices=scope_list, widget=forms.RadioSelect(), required=True, initial='Individual')
