@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView
 from upcomingevents.models import Event
 from upcomingevents.utils import *
+from donationmanager.models import DonationBox
 
 class UpcomingEvents(TemplateView):
     template_name = 'features.html'
@@ -13,7 +14,9 @@ class UpcomingEvents(TemplateView):
         user_email_address = request.session['email_address']
         events = get_unregistered_events(user_email_address)        
         print(events)
-        context = {'events': events}
+        donations = DonationBox.objects.all()
+        print(donations)
+        context = {'events': events, 'donations': donations}
         return render(request, self.template_name, context=context)
     def post(self, request, *args, **kwargs):
         user_email_address = request.session['email_address']

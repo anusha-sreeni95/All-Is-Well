@@ -92,18 +92,13 @@
 		<div class="gtco-container">
 			<div class="row">
 				<div class="col-md-12 col-md-offset-0 text-left">
-
-
 					<div class="row row-mt-15em">
 
 						<div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
 							<span class="intro-text-small">Contribute to our</span>
 							<h1>Upcoming Events</h1>
 						</div>
-
 					</div>
-
-
 				</div>
 			</div>
 		</div>
@@ -142,8 +137,30 @@
 					</div>
 				</div>
 				{% endfor %}
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
+					<h2>Donation Requests</h2>
+					<p>A little help goes a long way!</p>
+				</div>
+			</div>
+			<div class="row">
+				{% for donation in donations %}
+				<div class="col-md-4">
+					<div class="price-box">
+						<h2 class="pricing-plan">{{ donation.donation_title }}</h2>
 
+						<p>Requirements: {{ donation.donation_item_description }}</p>
+						<hr>
+						<ul class="details">
 
+							<li>Created on: {{ donation.creation_date }}</li>
+							<li>By {{ donation.ngo_name }}</li>
+							<li>Location: {{ donation.location }}</li>
+						</ul>
+
+					</div>
+				</div>
+				{% endfor %}
 
 	</div>
 
